@@ -1,13 +1,11 @@
 // MomenTec — section components. Pure presentational, driven by data + tweaks.
 
 const {
-  IconPhone, IconMessage, IconCheck, IconPin, IconArrowRight, IconPlus, IconClose,
-  IconHouse, IconYen, IconHandshake,
-  IconAC, IconDrops, IconSun,
-  IconWrench, IconBolt, IconTool, IconBox,
-  IconClipboard, IconHammer,
+  IconPhone, IconMessage, IconCheck, IconPin, IconArrowRight,
+  IconAC, IconDrops,
+  IconTool,
   IconSparkles, IconFan, IconFlame, IconWash, IconBulb, IconScissors,
-  IconCurtain, IconWall, IconRecycle, IconAlert,
+  IconCurtain, IconWall, IconRecycle,
 } = window.MIcons;
 
 // ── Reusable: animated reveal on scroll ─────────────────────────────────────
@@ -165,36 +163,6 @@ function Hero({ headline, sublede, area, tel }) {
             </div>
           </div>
         </Reveal>
-      </div>
-    </section>
-  );
-}
-
-// ── Why MomenTec ────────────────────────────────────────────────────────────
-const WHY_DATA = [
-  { num: '其の一', icon: IconHouse, title: '窓口ひとつで完結',
-    text: 'エアコン工事・クリーニング・業務用・太陽光保守まで。複数業者に頼む手間なく、まとめて任せられます。' },
-  { num: '其の二', icon: IconYen, title: '明朗な目安料金',
-    text: 'ホームページに料金を明記。見積もりはすべて無料、後から「追加料金」もありません。' },
-  { num: '其の三', icon: IconHandshake, title: '地域密着〇年の安心',
-    text: '〇〇市で〇年、地域の皆さまのお家を守ってきました。即日対応のご相談もどうぞ。' },
-];
-
-function Why() {
-  return (
-    <section className="section-why">
-      <div className="container">
-        <SectionHead eyebrow="Why MomenTec" title="MomenTec が選ばれる理由" />
-        <div className="why-grid">
-          {WHY_DATA.map((w, i) => (
-            <Reveal key={i} className="why-card" delay={i * 80}>
-              <div className="why-icon"><w.icon size={28} stroke={1.6} /></div>
-              <span className="num">{w.num}</span>
-              <h3>{w.title}</h3>
-              <p>{w.text}</p>
-            </Reveal>
-          ))}
-        </div>
       </div>
     </section>
   );
@@ -495,6 +463,6 @@ function Pricing() {
 }
 
 window.MSections1 = {
-  Header, MobileBar, Hero, Why, Services, FullCourse, HomeTroubles, Pricing,
+  Header, MobileBar, Hero, Services, FullCourse, HomeTroubles, Pricing,
   Reveal, SectionHead, AudienceBand,
 };

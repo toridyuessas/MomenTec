@@ -198,89 +198,6 @@ function Gallery() {
   );
 }
 
-// ── Stats with count-up ─────────────────────────────────────────────────────
-function CountUp({ to, duration = 1500 }) {
-  const [val, setVal] = React.useState(0);
-  const ref = React.useRef(null);
-  React.useEffect(() => {
-    if (!ref.current) return undefined;
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          const start = performance.now();
-          const tick = (now) => {
-            const t = Math.min(1, (now - start) / duration);
-            // ease-out cubic
-            const eased = 1 - Math.pow(1 - t, 3);
-            setVal(Math.round(to * eased));
-            if (t < 1) requestAnimationFrame(tick);
-          };
-          requestAnimationFrame(tick);
-          io.disconnect();
-        }
-      });
-    }, { threshold: 0.4 });
-    io.observe(ref.current);
-    return () => io.disconnect();
-  }, [to, duration]);
-  return <span ref={ref}>{val.toLocaleString()}</span>;
-}
-
-function Stats() {
-  return (
-    <section className="section-stats">
-      <div className="container">
-        <div className="stats-grid">
-          <Reveal2 as="div" className="stat">
-            <div className="number"><span className="placeholder">〇〇〇</span><span className="plus">+</span></div>
-            <div className="label">累計施工件数</div>
-          </Reveal2>
-          <Reveal2 as="div" className="stat" delay={100}>
-            <div className="number"><span className="placeholder">〇</span><span className="y">年</span></div>
-            <div className="label">地域歴</div>
-          </Reveal2>
-          <Reveal2 as="div" className="stat" delay={200}>
-            <div className="number"><span className="placeholder">〇〇</span><span className="pct">%</span></div>
-            <div className="label">リピート率</div>
-          </Reveal2>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ── Testimonials ────────────────────────────────────────────────────────────
-const VOICES = [
-  { initial: 'K', name: 'K.S 様', city: '〇〇市',
-    body: 'エアコンの効きが悪く相談したところ、即日来てくださり、丁寧に分解洗浄をしていただきました。冷えが見違えるように良くなり、本当に助かりました。' },
-  { initial: 'M', name: 'M.T 様', city: '△△市',
-    body: '完全分解洗浄をお願いしました。長年気になっていた水漏れがピタリと止まり、設置壁の裏まで綺麗にしていただいて感動でした。' },
-  { initial: 'A', name: 'A.Y 様', city: '□□町',
-    body: 'エアコン取付のついでに頼んだ物干し金具まで快く対応いただきました。料金も明朗で、また何かあったらお願いしたい職人さんです。' },
-];
-
-function Voices() {
-  return (
-    <section className="section-voices">
-      <div className="container">
-        <SectionHead2 eyebrow="Voices" title="お客様の声" />
-        <div className="voices-grid">
-          {VOICES.map((v, i) => (
-            <Reveal2 key={i} as="div" className="voice" delay={i * 100}>
-              <div className="quote-mark">〝</div>
-              <p>{v.body}</p>
-              <div className="who">
-                <span className="avatar">{v.initial}</span>
-                <span>{v.name} / {v.city}</span>
-              </div>
-            </Reveal2>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 // ── Area ────────────────────────────────────────────────────────────────────
 const AREAS = ['〇〇市', '△△市', '□□町', '✕✕市', '◇◇町', '◯◯町'];
 
@@ -445,6 +362,6 @@ function Footer({ tel, area }) {
 }
 
 window.MSections2 = {
-  Gallery, Stats, Voices, Area, Flow, Faq, FinalCTA, Footer,
+  Gallery, Area, Flow, Faq, FinalCTA, Footer,
   CommercialCleaning, SolarMaintenance,
 };

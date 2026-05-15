@@ -1,12 +1,12 @@
 // MomenTec — App entry + Tweaks integration.
 
 const {
-  Header, MobileBar, Hero, Why, Services,
+  Header, MobileBar, Hero, Services,
   FullCourse, HomeTroubles, Pricing,
   AudienceBand,
 } = window.MSections1;
 const {
-  Gallery, Stats, Voices, Area, Flow, Faq, FinalCTA, Footer,
+  Gallery, Area, Flow, Faq, FinalCTA, Footer,
   CommercialCleaning, SolarMaintenance,
 } = window.MSections2;
 
@@ -16,7 +16,6 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "accentSoft": "#E3EFE0",
   "headingFont": "Noto Serif JP",
   "heroVariant": "katei",
-  "showStats": true,
   "tel": "090-1234-5678",
   "area": "○○市"
 }/*EDITMODE-END*/;
@@ -82,7 +81,6 @@ function App() {
           area={t.area}
           tel={t.tel}
         />
-        <Why />
 
         {/* ── 個人のお客様へ ────────────────────────────── */}
         <AudienceBand
@@ -107,8 +105,6 @@ function App() {
 
         <Pricing />
         <Gallery />
-        {t.showStats && <Stats />}
-        <Voices />
         <Area />
         <Flow />
         <Faq />
@@ -144,9 +140,6 @@ function App() {
         </TweakSection>
 
         <TweakSection label="内容">
-          <TweakToggle label="実績数アピール"
-                       value={t.showStats}
-                       onChange={(v) => setTweak('showStats', v)} />
           <TweakText label="電話番号"
                      value={t.tel}
                      onChange={(v) => setTweak('tel', v)} />
