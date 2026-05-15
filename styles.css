@@ -1270,6 +1270,16 @@ section { padding: 64px 0; }
   body.has-bottom-bar { padding-bottom: 80px; }
 }
 
+/* ── Mobile: hide hero logo plate so Services follows directly ───────────── */
+@media (max-width: 899px) {
+  .hero-art--logo { display: none; }
+  .hero {
+    min-height: auto;
+    padding-top: calc(60px + 28px);
+    padding-bottom: 40px;
+  }
+}
+
 /* ═════════════════════════════════════════════════════════════════════════
    v1.1 additions — PDF実態反映
    ───────────────────────────────────────────────────────────────────────── */
