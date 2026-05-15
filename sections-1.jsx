@@ -1,7 +1,7 @@
 // MomenTec — section components. Pure presentational, driven by data + tweaks.
 
 const {
-  IconPhone, IconMessage, IconCheck, IconPin, IconArrowRight,
+  IconPhone, IconMessage, IconCheck, IconPin,
   IconAC, IconDrops,
   IconTool,
   IconSparkles, IconFan, IconFlame, IconWash, IconBulb, IconScissors,
@@ -214,9 +214,6 @@ function Services() {
                     <span className="val">¥{s.price}</span>
                     <span className="unit">〜</span>
                   </div>
-                  <a href={s.featured ? '#fullcourse' : '#pricing'} className="service-cta">
-                    詳しく見る <IconArrowRight size={14} stroke={2} />
-                  </a>
                 </div>
               </div>
             </Reveal>
