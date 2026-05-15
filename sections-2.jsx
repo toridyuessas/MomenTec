@@ -21,9 +21,9 @@ const COMMERCIAL_ROWS = [
 ];
 
 const COMMERCIAL_BA = {
-  caption: '店舗 天井カセット — 業務用エアコンの内部洗浄',
-  beforeSrc: '',
-  afterSrc: '',
+  caption: 'エアコン内部 熱交換器の洗浄 — 業務用機も同様の徹底度で対応します',
+  beforeSrc: 'picture/before2.png',
+  afterSrc: 'picture/after2.png',
 };
 
 function CommercialCleaning() {

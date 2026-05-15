@@ -39,7 +39,7 @@ function PhotoPlaceholder({ src, alt = '', label = '写真準備中', tone = 'ne
   return (
     <div className={`photo-placeholder photo-placeholder--${tone} ${className}`}>
       {src ? (
-        <img src={src} alt={alt} />
+        <img src={src} alt={alt} loading="lazy" decoding="async" />
       ) : (
         <div className="photo-placeholder-inner">
           <IconCamera size={28} stroke={1.4} />
@@ -274,14 +274,16 @@ const FC_DIFFICULT_MODELS = [
   'ノクリア「Xシリーズ」',
 ];
 
-// 施工例の写真スロット。後で src を入れれば自動で写真が入る。
+// 施工例の写真スロット。
 const FC_EXAMPLES_BA = [
-  { caption: '室内機 内部 — 通常クリーニングでは届かない汚れまで', beforeSrc: '', afterSrc: '' },
-  { caption: '熱交換器（裏側） — 蓄積したホコリ・カビを徹底除去',   beforeSrc: '', afterSrc: '' },
+  { caption: '室内機 内部（送風ファン周辺） — 通常クリーニングでは届かない汚れまで',
+    beforeSrc: 'picture/before1.png', afterSrc: 'picture/after1.png' },
+  { caption: '熱交換器（フィン） — 蓄積したホコリ・カビを徹底除去',
+    beforeSrc: 'picture/before3.png', afterSrc: 'picture/after3.png' },
 ];
 const FC_DISASSEMBLED = {
   caption: '本体から取り外した部品は、ひとつずつ手洗いで仕上げます。',
-  src: '',
+  src: 'picture/disassembled.jpg',
 };
 
 function FullCourse() {
@@ -327,8 +329,8 @@ function FullCourse() {
           <div className="fc-disassembled">
             <PhotoPlaceholder
               src={FC_DISASSEMBLED.src}
-              alt="完全分解後の部品"
-              label="完全分解後の様子（写真準備中）"
+              alt="完全分解後の部品を並べた様子"
+              label="完全分解後の様子"
               tone="showcase"
             />
             <p className="fc-disassembled-cap">{FC_DISASSEMBLED.caption}</p>
