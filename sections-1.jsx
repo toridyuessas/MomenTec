@@ -187,7 +187,6 @@ function Hero({ headline, sublede, area, tel }) {
             <div className="hero-badges">
               <span className="hero-badge"><IconCheck size={16} stroke={2.4} /> 見積もり無料</span>
               <span className="hero-badge"><IconCheck size={16} stroke={2.4} /> 即日対応可</span>
-              <span className="hero-badge"><IconCheck size={16} stroke={2.4} /> 地域歴〇年</span>
             </div>
           </Reveal>
         </div>

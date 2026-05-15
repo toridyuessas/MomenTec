@@ -16,8 +16,8 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "accentSoft": "#E3EFE0",
   "headingFont": "Noto Serif JP",
   "heroVariant": "katei",
-  "tel": "090-1234-5678",
-  "area": "○○市"
+  "tel": "080-9240-8512",
+  "area": "鹿児島県"
 }/*EDITMODE-END*/;
 
 // Curated palette options shown as swatches in Tweaks.
@@ -37,17 +37,17 @@ const HEADING_FONTS = [
 const HERO_VARIANTS = {
   katei: {
     headline: '家のことは、<br/>ぜんぶ<br/><span class="accent">この一人に。</span>',
-    sublede: 'エアコン工事も、完全分解洗浄も、業務用も。○○市の何でも屋 MomenTec が、窓口ひとつで承ります。',
+    sublede: 'エアコンも、家の困りごとも。窓口ひとつで承ります。',
     label: '家庭向け',
   },
   shokunin: {
     headline: '町の職人を、<br/><span class="accent">あなたの家に。</span>',
-    sublede: '〇年、地域のお家を見守ってきました。エアコン工事・分解洗浄・業務用・太陽光保守まで、丁寧な手仕事でお応えします。',
+    sublede: '地域のお家を見守る町の職人。丁寧な手仕事でお応えします。',
     label: '職人推し',
   },
   benriya: {
     headline: '困った、<br/>ぜんぶ任せて。<br/><span class="accent">何でも屋 MomenTec。</span>',
-    sublede: 'エアコン工事から業務用クリーニング、低圧太陽光保守まで、家と事業所の困りごとを丸ごとお引き受け。',
+    sublede: '家と事業所の困りごとを、丸ごとお引き受け。',
     label: 'コミカル',
   },
 };

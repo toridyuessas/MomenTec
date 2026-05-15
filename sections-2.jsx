@@ -137,7 +137,7 @@ function SolarMaintenance() {
 }
 
 // ── Area ────────────────────────────────────────────────────────────────────
-const AREAS = ['〇〇市', '△△市', '□□町', '✕✕市', '◇◇町', '◯◯町'];
+const AREAS = ['鹿児島県'];
 
 function Area() {
   return (
@@ -286,10 +286,10 @@ function Footer({ tel, area }) {
         <div className="brand">MomenTec<span className="dot" /></div>
         <div className="footer-rule" />
         <div className="footer-info">
-          <div><b>代表者</b>山田 太郎(ダミー)</div>
-          <div><b>所在地</b>〇〇県{area}△△町 1-2-3</div>
+          <div><b>代表者</b>谷之口 勢也 (Taninokuchi Seiya)</div>
+          <div><b>所在地</b>鹿児島県鹿児島市上谷口町493</div>
           <div><b>電話番号</b>{tel}</div>
-          <div><b>LINE</b>@momentec</div>
+          <div><b>LINE</b>(準備中)</div>
           <div><b>営業時間</b>8:00 〜 20:00 / 年中無休</div>
         </div>
         <div className="footer-divide" />
