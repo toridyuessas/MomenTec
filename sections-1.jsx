@@ -5,7 +5,7 @@ const {
   IconAC, IconDrops,
   IconTool,
   IconSparkles, IconFan, IconFlame, IconWash, IconBulb, IconScissors,
-  IconCurtain, IconWall, IconRecycle,
+  IconCurtain, IconWall, IconRecycle, IconCamera,
 } = window.MIcons;
 
 // ── Reusable: animated reveal on scroll ─────────────────────────────────────
@@ -29,6 +29,45 @@ function Reveal({ children, as: As = 'div', className = '', delay = 0, ...rest }
     <As ref={ref} className={`reveal ${visible ? 'visible' : ''} ${className}`} {...rest}>
       {children}
     </As>
+  );
+}
+
+// ── Reusable: photo placeholder ─────────────────────────────────────────────
+// `src` を渡せばその画像で差し変わる。未指定なら撮影予定のプレースホルダー表示。
+// tone: "neutral" | "before" | "after" — 仮置きの背景演出。
+function PhotoPlaceholder({ src, alt = '', label = '写真準備中', tone = 'neutral', className = '', children }) {
+  return (
+    <div className={`photo-placeholder photo-placeholder--${tone} ${className}`}>
+      {src ? (
+        <img src={src} alt={alt} />
+      ) : (
+        <div className="photo-placeholder-inner">
+          <IconCamera size={28} stroke={1.4} />
+          <span className="label">{label}</span>
+        </div>
+      )}
+      {children}
+    </div>
+  );
+}
+
+// ── Reusable: before / after pair ───────────────────────────────────────────
+function BeforeAfter({ beforeSrc, afterSrc, beforeAlt = 'Before', afterAlt = 'After',
+                       caption, className = '' }) {
+  return (
+    <figure className={`before-after ${className}`}>
+      <div className="ba-row">
+        <div className="ba-side">
+          <PhotoPlaceholder src={beforeSrc} alt={beforeAlt} label="Before" tone="before" />
+          <span className="ba-label">Before</span>
+        </div>
+        <div className="ba-side">
+          <PhotoPlaceholder src={afterSrc} alt={afterAlt} label="After" tone="after" />
+          <span className="ba-label ba-label--after">After</span>
+        </div>
+      </div>
+      {caption && <figcaption className="ba-caption">{caption}</figcaption>}
+    </figure>
   );
 }
 
@@ -235,6 +274,16 @@ const FC_DIFFICULT_MODELS = [
   'ノクリア「Xシリーズ」',
 ];
 
+// 施工例の写真スロット。後で src を入れれば自動で写真が入る。
+const FC_EXAMPLES_BA = [
+  { caption: '室内機 内部 — 通常クリーニングでは届かない汚れまで', beforeSrc: '', afterSrc: '' },
+  { caption: '熱交換器（裏側） — 蓄積したホコリ・カビを徹底除去',   beforeSrc: '', afterSrc: '' },
+];
+const FC_DISASSEMBLED = {
+  caption: '本体から取り外した部品は、ひとつずつ手洗いで仕上げます。',
+  src: '',
+};
+
 function FullCourse() {
   return (
     <section id="fullcourse" className="section-fullcourse">
@@ -263,6 +312,34 @@ function FullCourse() {
           <ul className="fc-spots">
             {FC_SPOTS.map((s, i) => <li key={i}>{s}</li>)}
           </ul>
+        </Reveal>
+
+        <Reveal className="fc-examples">
+          <h4 className="fc-examples-head"><span className="badge">CASE</span>施工例</h4>
+
+          <BeforeAfter
+            className="fc-ba"
+            caption={FC_EXAMPLES_BA[0].caption}
+            beforeSrc={FC_EXAMPLES_BA[0].beforeSrc}
+            afterSrc={FC_EXAMPLES_BA[0].afterSrc}
+          />
+
+          <div className="fc-disassembled">
+            <PhotoPlaceholder
+              src={FC_DISASSEMBLED.src}
+              alt="完全分解後の部品"
+              label="完全分解後の様子（写真準備中）"
+              tone="showcase"
+            />
+            <p className="fc-disassembled-cap">{FC_DISASSEMBLED.caption}</p>
+          </div>
+
+          <BeforeAfter
+            className="fc-ba"
+            caption={FC_EXAMPLES_BA[1].caption}
+            beforeSrc={FC_EXAMPLES_BA[1].beforeSrc}
+            afterSrc={FC_EXAMPLES_BA[1].afterSrc}
+          />
         </Reveal>
 
         <Reveal className="fc-prices">
@@ -450,5 +527,5 @@ function Pricing() {
 
 window.MSections1 = {
   Header, MobileBar, Hero, Services, FullCourse, HomeTroubles, Pricing,
-  Reveal, SectionHead, AudienceBand,
+  Reveal, SectionHead, AudienceBand, PhotoPlaceholder, BeforeAfter,
 };

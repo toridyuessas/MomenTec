@@ -8,7 +8,8 @@ const {
   IconGear, IconLeaf, IconShield, IconChat,
   IconSparkles: IconSparkles2,
 } = window.MIcons;
-const { Reveal: Reveal2, SectionHead: SectionHead2 } = window.MSections1;
+const { Reveal: Reveal2, SectionHead: SectionHead2,
+        PhotoPlaceholder: PhotoPlaceholder2, BeforeAfter: BeforeAfter2 } = window.MSections1;
 
 // ── Commercial Cleaning (業務用エアコンクリーニング・新規) ─────────────────
 const COMMERCIAL_ROWS = [
@@ -19,11 +20,26 @@ const COMMERCIAL_ROWS = [
   { icon: IconBuilding, name: 'ハウジングエアコン 1・2方向',  amount: '25,000〜35,000', suffix: '-' },
 ];
 
+const COMMERCIAL_BA = {
+  caption: '店舗 天井カセット — 業務用エアコンの内部洗浄',
+  beforeSrc: '',
+  afterSrc: '',
+};
+
 function CommercialCleaning() {
   return (
     <section id="commercial" className="section-commercial">
       <div className="container">
         <SectionHead2 eyebrow="Commercial AC Cleaning" title="業務用エアコンクリーニング" />
+
+        <Reveal2 className="commercial-photo">
+          <BeforeAfter2
+            caption={COMMERCIAL_BA.caption}
+            beforeSrc={COMMERCIAL_BA.beforeSrc}
+            afterSrc={COMMERCIAL_BA.afterSrc}
+          />
+        </Reveal2>
+
         <Reveal2 className="commercial-table">
           {COMMERCIAL_ROWS.map((r, i) => (
             <div key={i} className="commercial-row">
