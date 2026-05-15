@@ -121,7 +121,7 @@ function Hero({ headline, sublede, area, tel }) {
   return (
     <section id="top" className="hero">
       <div className="container">
-        <div>
+        <div className="hero-content">
           <Reveal>
             <span className="hero-eyebrow">
               <IconPin size={12} stroke={2} className="pin" />
@@ -152,17 +152,6 @@ function Hero({ headline, sublede, area, tel }) {
             </div>
           </Reveal>
         </div>
-
-        <Reveal delay={120}>
-          <div className="hero-art hero-art--logo" aria-hidden="true">
-            <div className="hero-logo-plate">
-              <div className="hero-logo-mark">M</div>
-              <div className="hero-logo-name">MomenTec</div>
-              <div className="hero-logo-tagline">家のことは、ひとつの窓口で。</div>
-              <div className="hero-logo-note">ロゴ(仮)</div>
-            </div>
-          </div>
-        </Reveal>
       </div>
     </section>
   );
