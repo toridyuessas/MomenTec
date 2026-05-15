@@ -6,7 +6,7 @@ const {
   AudienceBand,
 } = window.MSections1;
 const {
-  Gallery, Area, Flow, Faq, FinalCTA, Footer,
+  Area, Flow, Faq, FinalCTA, Footer,
   CommercialCleaning, SolarMaintenance,
 } = window.MSections2;
 
@@ -104,7 +104,6 @@ function App() {
         <SolarMaintenance />
 
         <Pricing />
-        <Gallery />
         <Area />
         <Flow />
         <Faq />

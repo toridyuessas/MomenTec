@@ -2,7 +2,7 @@
 
 const {
   IconPhone: IconPhone2, IconMessage: IconMessage2, IconCheck: IconCheck2,
-  IconPin: IconPin2, IconPlus: IconPlus2, IconClose: IconClose2,
+  IconPin: IconPin2, IconPlus: IconPlus2,
   IconClipboard: IconClipboard2, IconHammer: IconHammer2,
   IconBuilding, IconWrench: IconWrench2, IconSun: IconSun2,
   IconGear, IconLeaf, IconShield, IconChat,
@@ -131,84 +131,6 @@ function SolarMaintenance() {
         <Reveal2 as="div" className="solar-note">
           取り扱いメーカー外の場合はお断りすることがございます。ご了承ください。
         </Reveal2>
-      </div>
-    </section>
-  );
-}
-
-// ── Gallery ─────────────────────────────────────────────────────────────────
-const GALLERY = [
-  { tone: 'clean',   title: '完全分解洗浄',         area: '〇〇市・戸建て' },
-  { tone: 'install', title: 'エアコン取付＋化粧カバー', area: '△△市・マンション' },
-  { tone: 'clean',   title: 'お掃除機能付き 分解洗浄', area: '◇◇町・戸建て' },
-  { tone: 'install', title: '室外機 移設工事',       area: '〇〇市・賃貸' },
-  { tone: 'biz',     title: '業務用 天カセ クリーニング', area: '✕✕市・店舗' },
-  { tone: 'solar',   title: '低圧太陽光 保守点検',   area: '□□町・野立て' },
-];
-
-const galleryGradients = {
-  clean:   { before: 'linear-gradient(135deg, #6e5c44, #4a3d2c)',
-             after:  'linear-gradient(135deg, #c8d8be, #a8c9a0)' },
-  install: { before: 'linear-gradient(135deg, #7d8a96, #4f5a66)',
-             after:  'linear-gradient(135deg, #d8e8ec, #a5c3cb)' },
-  solar:   { before: 'linear-gradient(135deg, #8a7250, #5d4a32)',
-             after:  'linear-gradient(135deg, #f5e0a8, #d4ad60)' },
-  biz:     { before: 'linear-gradient(135deg, #6a6e7a, #3d4452)',
-             after:  'linear-gradient(135deg, #d8d2c4, #aab09a)' },
-};
-
-function Gallery() {
-  const [open, setOpen] = React.useState(null);
-  const [showAll, setShowAll] = React.useState(false);
-  const visible = showAll ? GALLERY : GALLERY.slice(0, 6);
-  return (
-    <section className="gallery-section">
-      <div className="container">
-        <SectionHead2 eyebrow="Gallery" title="施工実績ギャラリー" />
-        <Reveal2 as="div" className="gallery-grid">
-          {visible.map((g, i) => {
-            const grad = galleryGradients[g.tone];
-            return (
-              <button key={i} className="gallery-cell" onClick={() => setOpen(g)} aria-label={`${g.title} の詳細を見る`}>
-                <div className="gallery-art">
-                  <div className="ba-split">
-                    <div className="before" style={{ background: grad.before }}><span>Before</span></div>
-                    <div className="after" style={{ background: grad.after }}><span>After</span></div>
-                  </div>
-                  <div className="divider" />
-                </div>
-                <div className="gallery-meta">
-                  <div className="title">{g.title}</div>
-                  <div className="area">{g.area}</div>
-                </div>
-              </button>
-            );
-          })}
-        </Reveal2>
-
-        {/* Lightbox */}
-        <div className={`lightbox-overlay ${open ? 'open' : ''}`} onClick={() => setOpen(null)}>
-          {open && (
-            <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-              <div className="lb-art">
-                <div className="gallery-art" style={{ position: 'absolute', inset: 0 }}>
-                  <div className="ba-split">
-                    <div className="before" style={{ background: galleryGradients[open.tone].before }}><span>Before</span></div>
-                    <div className="after" style={{ background: galleryGradients[open.tone].after }}><span>After</span></div>
-                  </div>
-                  <div className="divider" />
-                </div>
-                <button className="lb-close" onClick={() => setOpen(null)} aria-label="閉じる">
-                  <IconClose2 size={18} stroke={2} />
-                </button>
-              </div>
-              <div className="lb-body">
-                <h4>{open.title}</h4>
-                <p>{open.area} ・ 施工写真は準備中です。実際の写真と差し替え予定。</p>
-              </div>
-            </div>
-          )}
-        </div>
       </div>
     </section>
   );
@@ -378,6 +300,6 @@ function Footer({ tel, area }) {
 }
 
 window.MSections2 = {
-  Gallery, Area, Flow, Faq, FinalCTA, Footer,
+  Area, Flow, Faq, FinalCTA, Footer,
   CommercialCleaning, SolarMaintenance,
 };
