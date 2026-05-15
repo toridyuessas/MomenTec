@@ -1,7 +1,14 @@
 // MomenTec — App entry + Tweaks integration.
 
-const { Header, MobileBar, Hero, Why, Services, Others, Pricing } = window.MSections1;
-const { Gallery, Stats, Voices, Area, Flow, Faq, FinalCTA, Footer } = window.MSections2;
+const {
+  Header, MobileBar, Hero, Why, Services,
+  FullCourse, HomeTroubles, Pricing,
+  AudienceBand,
+} = window.MSections1;
+const {
+  Gallery, Stats, Voices, Area, Flow, Faq, FinalCTA, Footer,
+  CommercialCleaning, SolarMaintenance,
+} = window.MSections2;
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "accent": "#A8C9A0",
@@ -31,17 +38,17 @@ const HEADING_FONTS = [
 const HERO_VARIANTS = {
   katei: {
     headline: '家のことは、<br/>ぜんぶ<br/><span class="accent">この一人に。</span>',
-    sublede: 'エアコンも、クリーニングも、太陽光も。○○市の何でも屋 MomenTec が、窓口ひとつで承ります。',
+    sublede: 'エアコン工事も、完全分解洗浄も、業務用も。○○市の何でも屋 MomenTec が、窓口ひとつで承ります。',
     label: '家庭向け',
   },
   shokunin: {
     headline: '町の職人を、<br/><span class="accent">あなたの家に。</span>',
-    sublede: '〇年、地域のお家を見守ってきました。エアコン・クリーニング・太陽光、丁寧な手仕事でお応えします。',
+    sublede: '〇年、地域のお家を見守ってきました。エアコン工事・分解洗浄・業務用・太陽光保守まで、丁寧な手仕事でお応えします。',
     label: '職人推し',
   },
   benriya: {
     headline: '困った、<br/>ぜんぶ任せて。<br/><span class="accent">何でも屋 MomenTec。</span>',
-    sublede: 'エアコン工事から太陽光まで、家の困りごとを丸ごとお引き受け。一本の電話で完結します。',
+    sublede: 'エアコン工事から業務用クリーニング、低圧太陽光保守まで、家と事業所の困りごとを丸ごとお引き受け。',
     label: 'コミカル',
   },
 };
@@ -76,8 +83,28 @@ function App() {
           tel={t.tel}
         />
         <Why />
+
+        {/* ── 個人のお客様へ ────────────────────────────── */}
+        <AudienceBand
+          kicker="For Households"
+          title="個人のお客様へ"
+          desc="エアコン工事・クリーニング・完全分解洗浄から、お家の細かな困りごとまで。"
+          variant="home"
+        />
         <Services />
-        <Others />
+        <FullCourse />
+        <HomeTroubles />
+
+        {/* ── 事業者・オーナー様へ ─────────────────────── */}
+        <AudienceBand
+          kicker="For Business Owners"
+          title="事業者・オーナー様へ"
+          desc="業務用エアコンクリーニングと、低圧太陽光発電所の保守点検を承ります。"
+          variant="biz"
+        />
+        <CommercialCleaning />
+        <SolarMaintenance />
+
         <Pricing />
         <Gallery />
         {t.showStats && <Stats />}

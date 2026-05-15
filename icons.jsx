@@ -36,10 +36,30 @@ const IconBox = (p) => <Icon {...p}><path d="M21 8 12 3 3 8l9 5 9-5z"/><path d="
 const IconClipboard = (p) => <Icon {...p}><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1"/><line x1="9" y1="10" x2="15" y2="10"/><line x1="9" y1="14" x2="15" y2="14"/></Icon>;
 const IconHammer = (p) => <Icon {...p}><path d="M14 4l6 6-2 2-6-6 2-2z"/><path d="M12 6 3 15v6h6l9-9"/></Icon>;
 
+// v1.1 additions
+const IconSparkles = (p) => <Icon {...p}><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3z"/><path d="M19 14l.7 1.8L21 16.5l-1.3.7L19 19l-.7-1.8L17 16.5l1.3-.7L19 14z"/><path d="M5 16l.5 1.3L7 18l-1.5.7L5 20l-.5-1.3L3 18l1.5-.7L5 16z"/></Icon>;
+const IconBuilding = (p) => <Icon {...p}><rect x="4" y="3" width="16" height="18" rx="1"/><line x1="9" y1="8" x2="9" y2="8.01"/><line x1="15" y1="8" x2="15" y2="8.01"/><line x1="9" y1="12" x2="9" y2="12.01"/><line x1="15" y1="12" x2="15" y2="12.01"/><line x1="9" y1="16" x2="9" y2="16.01"/><line x1="15" y1="16" x2="15" y2="16.01"/></Icon>;
+const IconLeaf = (p) => <Icon {...p}><path d="M11 20A7 7 0 0 1 4 13c0-6 5-9 16-9 0 9-4 16-9 16z"/><path d="M2 22l9-9"/></Icon>;
+const IconShield = (p) => <Icon {...p}><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/></Icon>;
+const IconChat = (p) => <Icon {...p}><path d="M21 11.5a8.5 8.5 0 0 1-13.4 6.9L3 20l1.6-4.6A8.5 8.5 0 1 1 21 11.5z"/></Icon>;
+const IconFan = (p) => <Icon {...p}><circle cx="12" cy="12" r="2"/><path d="M12 2c2 3 2 6 0 10-2-4-2-7 0-10z"/><path d="M22 12c-3 2-6 2-10 0 4-2 7-2 10 0z"/><path d="M12 22c-2-3-2-6 0-10 2 4 2 7 0 10z"/><path d="M2 12c3-2 6-2 10 0-4 2-7 2-10 0z"/></Icon>;
+const IconFlame = (p) => <Icon {...p}><path d="M12 22c4 0 7-3 7-7 0-4-4-7-4-11-3 2-7 5-7 11 0 4 1 7 4 7z"/><path d="M12 22c-1 0-2-1-2-3 0-2 2-3 2-5 1 2 2 3 2 5 0 2-1 3-2 3z"/></Icon>;
+const IconWash = (p) => <Icon {...p}><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="8" y1="7" x2="8" y2="7.01"/><line x1="12" y1="7" x2="16" y2="7"/></Icon>;
+const IconBulb = (p) => <Icon {...p}><path d="M9 18h6"/><path d="M10 21h4"/><path d="M8 14a5 5 0 1 1 8 0c-1 1-1 2-1 3H9c0-1 0-2-1-3z"/></Icon>;
+const IconScissors = (p) => <Icon {...p}><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></Icon>;
+const IconGear = (p) => <Icon {...p}><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 0 1-4 0v-.1A1.7 1.7 0 0 0 9 19.4a1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 0 1 0-4h.1A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 0 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 0 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></Icon>;
+const IconCurtain = (p) => <Icon {...p}><path d="M3 4h18"/><path d="M5 4v17c2-2 3-5 3-9s-1-7-3-8z"/><path d="M19 4v17c-2-2-3-5-3-9s1-7 3-8z"/><path d="M12 4v17"/></Icon>;
+const IconWall = (p) => <Icon {...p}><rect x="3" y="4" width="18" height="16" rx="1"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="3" y1="16" x2="21" y2="16"/><line x1="9" y1="4" x2="9" y2="10"/><line x1="15" y1="10" x2="15" y2="16"/><line x1="9" y1="16" x2="9" y2="20"/></Icon>;
+const IconRecycle = (p) => <Icon {...p}><path d="M7 19l-3-3 3-3"/><path d="M9 5l3-3 3 3"/><path d="M19 7l3 3-3 3"/><path d="M4 16h6a4 4 0 0 0 4-4"/><path d="M20 10h-6a4 4 0 0 0-4 4"/></Icon>;
+const IconAlert = (p) => <Icon {...p}><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12" y2="17.01"/></Icon>;
+
 window.MIcons = {
   IconPhone, IconMessage, IconCheck, IconPin, IconArrowRight, IconPlus, IconClose,
   IconHouse, IconYen, IconHandshake,
   IconAC, IconDrops, IconSun,
   IconWrench, IconBolt, IconTool, IconBox,
   IconClipboard, IconHammer,
+  IconSparkles, IconBuilding, IconLeaf, IconShield, IconChat,
+  IconFan, IconFlame, IconWash, IconBulb, IconScissors, IconGear,
+  IconCurtain, IconWall, IconRecycle, IconAlert,
 };

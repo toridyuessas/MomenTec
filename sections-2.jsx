@@ -4,17 +4,130 @@ const {
   IconPhone: IconPhone2, IconMessage: IconMessage2, IconCheck: IconCheck2,
   IconPin: IconPin2, IconPlus: IconPlus2, IconClose: IconClose2,
   IconClipboard: IconClipboard2, IconHammer: IconHammer2,
+  IconBuilding, IconWrench: IconWrench2, IconSun: IconSun2,
+  IconGear, IconLeaf, IconShield, IconChat,
+  IconSparkles: IconSparkles2,
 } = window.MIcons;
 const { Reveal: Reveal2, SectionHead: SectionHead2 } = window.MSections1;
 
+// ── Commercial Cleaning (業務用エアコンクリーニング・新規) ─────────────────
+const COMMERCIAL_ROWS = [
+  { icon: IconBuilding, name: '天カセ 4方向・2方向',         amount: '30,000', suffix: '-' },
+  { icon: IconBuilding, name: '天吊 1方向',                   amount: '35,000', suffix: '-' },
+  { icon: IconBuilding, name: '厨房用 天吊 1方向',            amount: '40,000', suffix: '-' },
+  { icon: IconBuilding, name: '床置き型',                     amount: '30,000', suffix: '-' },
+  { icon: IconBuilding, name: 'ハウジングエアコン 1・2方向',  amount: '25,000〜35,000', suffix: '-' },
+];
+
+function CommercialCleaning() {
+  return (
+    <section id="commercial" className="section-commercial">
+      <div className="container">
+        <SectionHead2 eyebrow="Commercial AC Cleaning" title="業務用エアコンクリーニング" />
+        <Reveal2 className="commercial-table">
+          {COMMERCIAL_ROWS.map((r, i) => (
+            <div key={i} className="commercial-row">
+              <span className="name">
+                <span className="ic"><r.icon size={20} stroke={1.7} /></span>
+                {r.name}
+              </span>
+              <span className="amount">¥{r.amount}<small>{r.suffix}</small></span>
+            </div>
+          ))}
+          <div className="commercial-row is-addon">
+            <span className="name">
+              <span className="ic"><IconGear size={18} stroke={1.7} /></span>
+              自動掃除ユニット搭載の場合(加算)
+            </span>
+            <span className="amount">+¥10,000<small>-</small></span>
+          </div>
+        </Reveal2>
+
+        <Reveal2 className="commercial-repair">
+          <span className="text">
+            <span className="ic"><IconWrench2 size={22} stroke={1.7} /></span>
+            修理もご相談ください
+          </span>
+          <a href="#cta" className="btn btn-secondary">
+            <IconMessage2 size={16} stroke={2} /> 問い合わせる
+          </a>
+        </Reveal2>
+      </div>
+    </section>
+  );
+}
+
+// ── Solar Maintenance (低圧太陽光 保守点検・全面差替) ──────────────────────
+const SOLAR_MENU = [
+  { icon: IconClipboard2, title: 'システムの定期保守点検',
+    text: '小出力発電設備として求められる点検と報告に対応します。' },
+  { icon: IconLeaf, title: '敷地内の除草作業',
+    text: '雑草によるパネルへの影響や火災リスクを抑えます。' },
+  { icon: IconShield, title: '保険を利用したパネル・PC交換',
+    text: '加入されている保険を活用したパネル・パワコン交換のご相談。' },
+  { icon: IconChat, title: 'その他ご相談',
+    text: 'お困りごと・ご質問はまずお気軽にお声かけください。' },
+];
+
+function SolarMaintenance() {
+  return (
+    <section id="solar" className="section-solar">
+      <div className="container">
+        <SectionHead2 eyebrow="Solar Maintenance" title="低圧太陽光 保守点検" />
+
+        <Reveal2 className="solar-target">
+          <span className="ic"><IconSun2 size={22} stroke={1.7} /></span>
+          <div className="body">
+            <div className="label">対象設備</div>
+            <div className="name">野立て・50kW未満の低圧事業用太陽光発電設備</div>
+          </div>
+        </Reveal2>
+
+        <Reveal2 className="solar-menu">
+          {SOLAR_MENU.map((m, i) => (
+            <div key={i} className="solar-item">
+              <span className="ic"><m.icon size={20} stroke={1.7} /></span>
+              <div>
+                <h4>{m.title}</h4>
+                <p>{m.text}</p>
+              </div>
+            </div>
+          ))}
+        </Reveal2>
+
+        <Reveal2 className="solar-law">
+          <h4>法定の保守点検について</h4>
+          <p>
+            かつては「低圧はメンテナンスフリー」と言われていましたが、
+            現在は法改正により「小出力発電設備」として、適切な保守点検（メンテナンス）と
+            報告が法的に義務付けられています。点検手順がよくわからない方も、まずはご相談だけでも構いません。
+          </p>
+        </Reveal2>
+
+        <Reveal2 className="solar-flow">
+          <span className="step">発電所のご案内</span>
+          <span className="arrow">→</span>
+          <span className="step">現状の確認</span>
+          <span className="arrow">→</span>
+          <span className="step">お見積り</span>
+        </Reveal2>
+
+        <Reveal2 as="div" className="solar-note">
+          取り扱いメーカー外の場合はお断りすることがございます。ご了承ください。
+        </Reveal2>
+      </div>
+    </section>
+  );
+}
+
 // ── Gallery ─────────────────────────────────────────────────────────────────
 const GALLERY = [
-  { tone: 'clean', title: '分解洗浄', area: '〇〇市・戸建て' },
-  { tone: 'install', title: 'エアコン取付', area: '△△市・マンション' },
-  { tone: 'solar', title: 'パネル清掃', area: '□□町・戸建て' },
-  { tone: 'clean', title: 'お掃除機能付き分解', area: '◇◇町・戸建て' },
-  { tone: 'install', title: '室外機移設', area: '〇〇市・賃貸' },
-  { tone: 'solar', title: '売電手続き代行', area: '✕✕市・戸建て' },
+  { tone: 'clean',   title: '完全分解洗浄',         area: '〇〇市・戸建て' },
+  { tone: 'install', title: 'エアコン取付＋化粧カバー', area: '△△市・マンション' },
+  { tone: 'clean',   title: 'お掃除機能付き 分解洗浄', area: '◇◇町・戸建て' },
+  { tone: 'install', title: '室外機 移設工事',       area: '〇〇市・賃貸' },
+  { tone: 'biz',     title: '業務用 天カセ クリーニング', area: '✕✕市・店舗' },
+  { tone: 'solar',   title: '低圧太陽光 保守点検',   area: '□□町・野立て' },
 ];
 
 const galleryGradients = {
@@ -24,6 +137,8 @@ const galleryGradients = {
              after:  'linear-gradient(135deg, #d8e8ec, #a5c3cb)' },
   solar:   { before: 'linear-gradient(135deg, #8a7250, #5d4a32)',
              after:  'linear-gradient(135deg, #f5e0a8, #d4ad60)' },
+  biz:     { before: 'linear-gradient(135deg, #6a6e7a, #3d4452)',
+             after:  'linear-gradient(135deg, #d8d2c4, #aab09a)' },
 };
 
 function Gallery() {
@@ -139,9 +254,9 @@ const VOICES = [
   { initial: 'K', name: 'K.S 様', city: '〇〇市',
     body: 'エアコンの効きが悪く相談したところ、即日来てくださり、丁寧に分解洗浄をしていただきました。冷えが見違えるように良くなり、本当に助かりました。' },
   { initial: 'M', name: 'M.T 様', city: '△△市',
-    body: '太陽光の売電契約の切替えで困っていたところ、面倒な手続きをすべて代行してくださって本当に助かりました。何でも相談できる安心感があります。' },
+    body: '完全分解洗浄をお願いしました。長年気になっていた水漏れがピタリと止まり、設置壁の裏まで綺麗にしていただいて感動でした。' },
   { initial: 'A', name: 'A.Y 様', city: '□□町',
-    body: 'エアコン取付から、ついでに頼んだ物干し金具の取付まで快く対応いただきました。料金も明朗で、また何かあったらお願いしたい職人さんです。' },
+    body: 'エアコン取付のついでに頼んだ物干し金具まで快く対応いただきました。料金も明朗で、また何かあったらお願いしたい職人さんです。' },
 ];
 
 function Voices() {
@@ -230,10 +345,21 @@ function Flow() {
 const FAQ = [
   { q: '見積もりは無料ですか?', a: 'はい、現地調査・お見積もりはすべて無料です。お気軽にご相談ください。' },
   { q: '土日や夜間も対応していますか?', a: '土日も対応しております。夜間も状況に応じてご相談承ります(基本営業時間 8:00〜20:00)。' },
+  { q: '完全分解洗浄と通常クリーニングの違いは?',
+    a: '通常クリーニングは設置したまま洗浄するため、熱交換器の表面や送風ファンの清掃が中心です。完全分解洗浄では一度本体を取り外し、すべて分解して、壁との隙間や熱交換器の裏側・基板裏まで徹底的に洗います。長年蓄積した汚れや、クリーニングだけでは改善しなかった水漏れ・結露でお困りの方におすすめです。' },
+  { q: 'お預かり洗浄はどのくらいで戻ってきますか?',
+    a: 'スケジュールが空いていれば当日夕方に再取付できます。混み合っている場合や手間のかかる機種の場合は後日のお持ち帰り設置になります。お預かり時に目安日数をご案内します。' },
+  { q: '自分のエアコンが「お掃除機能付き」か分かりません',
+    a: 'メーカー名と型番をLINEや電話でお伝えください。こちらで判別してご案内します。リモコンや本体に「お掃除」「自動清掃」などの表示がある場合は該当する可能性が高いです。' },
+  { q: '業務用エアコンの修理にも対応してもらえますか?',
+    a: 'はい、修理もご相談ください。状況によりメーカー手配が必要な場合もありますが、まずは現状確認のご相談からお受けしています。' },
+  { q: '太陽光発電所の点検は、自分のメーカーが対象か分かりません',
+    a: 'まずは発電所をご案内いただき、メーカー・型式を確認させてください。取り扱いメーカー外の場合はお断りする場合がございますが、対応可否のご案内は無料で行っています。' },
+  { q: '化粧カバーは必ずつけたほうがいいですか?',
+    a: '見た目を整えるだけでなく、配管の劣化を防ぐ役割もあります。外壁の見える面や、長い配管を引き回す場合にはおすすめしています。費用と相談しながらご提案します。' },
   { q: '支払い方法は何が使えますか?', a: '現金、銀行振込、PayPay、各種クレジットカードに対応しております。' },
   { q: '即日対応はできますか?', a: '在庫・スケジュールに余裕がある場合は即日対応可能です。まずはお電話・LINEでご相談ください。' },
   { q: 'キャンセル料はかかりますか?', a: '現地調査前のキャンセルは無料です。施工日確定後のキャンセルは内容により異なりますので、お早めにご連絡ください。' },
-  { q: 'エアコン本体の販売もしていますか?', a: 'はい、ご希望のメーカー・機種の手配も承ります。お得な型落ち品のご提案も可能です。' },
   { q: '賃貸でも工事できますか?', a: '大家様・管理会社様の許可があれば可能です。書類が必要な場合もサポートいたします。' },
 ];
 
@@ -318,4 +444,7 @@ function Footer({ tel, area }) {
   );
 }
 
-window.MSections2 = { Gallery, Stats, Voices, Area, Flow, Faq, FinalCTA, Footer };
+window.MSections2 = {
+  Gallery, Stats, Voices, Area, Flow, Faq, FinalCTA, Footer,
+  CommercialCleaning, SolarMaintenance,
+};
