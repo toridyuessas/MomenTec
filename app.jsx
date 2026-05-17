@@ -36,7 +36,7 @@ const HEADING_FONTS = [
 
 const HERO_VARIANTS = {
   katei: {
-    headline: '家のことは、<br/>ぜんぶ<br/><span class="accent">この一人に。</span>',
+    headline: '鹿児島のエアコンと<br/>お困りごとなら<br/><span class="accent">当店一択！</span>',
     sublede: 'エアコンも、家の困りごとも。窓口ひとつで承ります。',
     label: '家庭向け',
   },

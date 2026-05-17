@@ -22,8 +22,8 @@ const COMMERCIAL_ROWS = [
 
 const COMMERCIAL_BA = {
   caption: 'エアコン内部 熱交換器の洗浄 — 業務用機も同様の徹底度で対応します',
-  beforeSrc: 'picture/before2.png',
-  afterSrc: 'picture/after2.png',
+  beforeSrc: 'picture/gyoumu_before_1.png',
+  afterSrc: 'picture/gyoumu_after_1.png',
 };
 
 function CommercialCleaning() {
@@ -137,22 +137,41 @@ function SolarMaintenance() {
 }
 
 // ── Area ────────────────────────────────────────────────────────────────────
-const AREAS = ['鹿児島県'];
+const AREAS_PERSONAL = ['鹿児島県内 全域'];
+const AREAS_COMMERCIAL = ['鹿児島県', '熊本県', '宮崎県', '大分県', '福岡県', '佐賀県', '長崎県'];
 
 function Area() {
   return (
     <section className="area-section">
       <div className="container">
         <SectionHead2 eyebrow="Service Area" title="対応エリア" />
-        <Reveal2 as="div" className="area-pins">
-          {AREAS.map((a) => (
-            <span key={a} className="area-pin">
-              <IconPin2 size={14} stroke={2} /> {a}
-            </span>
-          ))}
-          <span className="area-pin area-pin--other">上記以外もご相談ください</span>
+
+        <Reveal2 as="div" className="area-group">
+          <div className="area-group-head">エアコン工事・クリーニング・お家のお困り事</div>
+          <div className="area-pins">
+            {AREAS_PERSONAL.map((a) => (
+              <span key={a} className="area-pin">
+                <IconPin2 size={14} stroke={2} /> {a}
+              </span>
+            ))}
+          </div>
         </Reveal2>
-        <div className="area-note">※ 隣接エリアも出張可能です。まずはお問い合わせください。</div>
+
+        <Reveal2 as="div" className="area-group" delay={80}>
+          <div className="area-group-head">業務用エアコンクリーニング</div>
+          <div className="area-pins">
+            {AREAS_COMMERCIAL.map((a) => (
+              <span key={a} className="area-pin">
+                <IconPin2 size={14} stroke={2} /> {a}
+              </span>
+            ))}
+          </div>
+        </Reveal2>
+
+        <div className="area-note">
+          ※ 鹿児島県外（九州他県）への業務用エアコン対応は、出張費を別途頂戴します。<br />
+          ※ 上記以外のエリアもまずはご相談ください。
+        </div>
       </div>
     </section>
   );
@@ -198,8 +217,10 @@ function Flow() {
 
 // ── FAQ ─────────────────────────────────────────────────────────────────────
 const FAQ = [
-  { q: '見積もりは無料ですか?', a: 'はい、現地調査・お見積もりはすべて無料です。お気軽にご相談ください。' },
-  { q: '土日や夜間も対応していますか?', a: '土日も対応しております。夜間も状況に応じてご相談承ります(基本営業時間 8:00〜20:00)。' },
+  { q: '見積もりは無料ですか?',
+    a: '鹿児島市内は無料です。市外でも当店で施工させていただいた方は無料で承ります。鹿児島市以外でお見積もりのみのご依頼は ¥3,000〜 頂戴しております。' },
+  { q: '日曜や夜間も対応していますか?',
+    a: '基本営業時間は 8:00〜18:00、日曜定休としております。事前にご相談いただければ、日曜・夜間の対応も可能ですのでお気軽にお声かけください。' },
   { q: '完全分解洗浄と通常クリーニングの違いは?',
     a: '通常クリーニングは設置したまま洗浄するため、熱交換器の表面や送風ファンの清掃が中心です。完全分解洗浄では一度本体を取り外し、すべて分解して、壁との隙間や熱交換器の裏側・基板裏まで徹底的に洗います。長年蓄積した汚れや、クリーニングだけでは改善しなかった水漏れ・結露でお困りの方におすすめです。' },
   { q: 'お預かり洗浄はどのくらいで戻ってきますか?',
@@ -212,8 +233,8 @@ const FAQ = [
     a: 'まずは発電所をご案内いただき、メーカー・型式を確認させてください。取り扱いメーカー外の場合はお断りする場合がございますが、対応可否のご案内は無料で行っています。' },
   { q: '化粧カバーは必ずつけたほうがいいですか?',
     a: '見た目を整えるだけでなく、配管の劣化を防ぐ役割もあります。外壁の見える面や、長い配管を引き回す場合にはおすすめしています。費用と相談しながらご提案します。' },
-  { q: '支払い方法は何が使えますか?', a: '現金、銀行振込、PayPay、各種クレジットカードに対応しております。' },
-  { q: '即日対応はできますか?', a: '在庫・スケジュールに余裕がある場合は即日対応可能です。まずはお電話・LINEでご相談ください。' },
+  { q: '支払い方法は何が使えますか?', a: '現金、または請求書払い（後日のお振込）に対応しております。' },
+  { q: '即日対応はできますか?', a: 'ご予約状況と部材の在庫次第ですが、即日対応も可能です。まずはお電話・LINEでご相談ください。' },
   { q: 'キャンセル料はかかりますか?', a: '現地調査前のキャンセルは無料です。施工日確定後のキャンセルは内容により異なりますので、お早めにご連絡ください。' },
   { q: '賃貸でも工事できますか?', a: '大家様・管理会社様の許可があれば可能です。書類が必要な場合もサポートいたします。' },
 ];
@@ -264,7 +285,8 @@ function FinalCTA({ tel }) {
         </Reveal2>
         <Reveal2 delay={140}>
           <div className="cta-hours">
-            営業時間: 8:00 〜 20:00 / 年中無休<br />
+            営業時間: 8:00 〜 18:00 / 日曜定休<br />
+            （日曜・夜間も事前にご相談いただければ対応可能）<br />
             即日対応可能なケースもございます
           </div>
         </Reveal2>
@@ -290,7 +312,8 @@ function Footer({ tel, area }) {
           <div><b>所在地</b>鹿児島県鹿児島市上谷口町493</div>
           <div><b>電話番号</b>{tel}</div>
           <div><b>LINE</b>(準備中)</div>
-          <div><b>営業時間</b>8:00 〜 20:00 / 年中無休</div>
+          <div><b>営業時間</b>8:00 〜 18:00 / 日曜定休<br /><span className="muted">（日曜・夜間も事前相談で対応可）</span></div>
+          <div><b>お支払い</b>現金 / 請求書払い</div>
         </div>
         <div className="footer-divide" />
         <div className="footer-copy">© 2026 MomenTec. All rights reserved.</div>

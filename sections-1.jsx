@@ -164,7 +164,7 @@ function Hero({ headline, sublede, area, tel }) {
           <Reveal>
             <span className="hero-eyebrow">
               <IconPin size={12} stroke={2} className="pin" />
-              {area}の何でも屋
+              {area}のエアコンメインの何でも屋
             </span>
           </Reveal>
           <Reveal delay={60}>
@@ -185,8 +185,9 @@ function Hero({ headline, sublede, area, tel }) {
           </Reveal>
           <Reveal delay={240}>
             <div className="hero-badges">
-              <span className="hero-badge"><IconCheck size={16} stroke={2.4} /> 見積もり無料</span>
-              <span className="hero-badge"><IconCheck size={16} stroke={2.4} /> 即日対応可</span>
+              <span className="hero-badge"><IconCheck size={16} stroke={2.4} /> 鹿児島市内 見積もり無料</span>
+              <span className="hero-badge"><IconCheck size={16} stroke={2.4} /> 即日対応可（要相談）</span>
+              <span className="hero-badge"><IconCheck size={16} stroke={2.4} /> 鹿児島県内全域</span>
             </div>
           </Reveal>
         </div>
@@ -517,7 +518,10 @@ function Pricing() {
         <Reveal className="price-notes">
           <ul>
             <li>現地状況により金額は変動します</li>
-            <li>お見積もりは無料です。お気軽にご相談ください</li>
+            <li>鹿児島市内のお見積もりは無料です。市外でも当店で施工させていただく場合は無料で承ります</li>
+            <li>鹿児島市以外でお見積もりのみのご依頼は ¥3,000〜 頂戴いたします</li>
+            <li>業務用エアコンは九州全県に対応（鹿児島県外は出張費を別途頂戴します）</li>
+            <li>お支払いは現金または請求書払い（後日のお振込）に対応しております</li>
             <li>太陽光の保守は、取り扱いメーカー外の場合はお断りすることがあります</li>
           </ul>
         </Reveal>
