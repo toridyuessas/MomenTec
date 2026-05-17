@@ -17,7 +17,8 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "headingFont": "Noto Serif JP",
   "heroVariant": "katei",
   "tel": "080-9240-8512",
-  "area": "鹿児島県"
+  "area": "鹿児島県",
+  "lineUrl": "https://lin.ee/VDO8hvl"
 }/*EDITMODE-END*/;
 
 // Curated palette options shown as swatches in Tweaks.
@@ -41,13 +42,13 @@ const HERO_VARIANTS = {
     label: '家庭向け',
   },
   shokunin: {
-    headline: '町の職人を、<br/><span class="accent">あなたの家に。</span>',
-    sublede: '地域のお家を見守る町の職人。丁寧な手仕事でお応えします。',
+    headline: '鹿児島のエアコンを、<br/>町の職人が<br/><span class="accent">丁寧に。</span>',
+    sublede: 'エアコンも、家のお困りごとも。地域に根ざした職人がひとつひとつ承ります。',
     label: '職人推し',
   },
   benriya: {
-    headline: '困った、<br/>ぜんぶ任せて。<br/><span class="accent">何でも屋 MomenTec。</span>',
-    sublede: '家と事業所の困りごとを、丸ごとお引き受け。',
+    headline: '鹿児島の<br/>エアコン＆困った、<br/><span class="accent">ぜんぶ任せて。</span>',
+    sublede: 'エアコンも、家の困りごとも。何でも屋 MomenTec が窓口ひとつで承ります。',
     label: 'コミカル',
   },
 };
@@ -71,8 +72,8 @@ function App() {
 
   return (
     <>
-      <Header tel={t.tel} />
-      <MobileBar tel={t.tel} />
+      <Header tel={t.tel} lineUrl={t.lineUrl} />
+      <MobileBar tel={t.tel} lineUrl={t.lineUrl} />
 
       <main>
         <Hero
@@ -80,6 +81,7 @@ function App() {
           sublede={variant.sublede}
           area={t.area}
           tel={t.tel}
+          lineUrl={t.lineUrl}
         />
 
         {/* ── 個人のお客様へ ────────────────────────────── */}
@@ -107,10 +109,10 @@ function App() {
         <Area />
         <Flow />
         <Faq />
-        <FinalCTA tel={t.tel} />
+        <FinalCTA tel={t.tel} lineUrl={t.lineUrl} />
       </main>
 
-      <Footer tel={t.tel} area={t.area} />
+      <Footer tel={t.tel} area={t.area} lineUrl={t.lineUrl} />
 
       <TweaksPanel title="Tweaks">
         <TweakSection label="カラー (Palette)">
@@ -145,6 +147,9 @@ function App() {
           <TweakText label="地域名"
                      value={t.area}
                      onChange={(v) => setTweak('area', v)} />
+          <TweakText label="LINE 友だち追加URL"
+                     value={t.lineUrl}
+                     onChange={(v) => setTweak('lineUrl', v)} />
         </TweakSection>
       </TweaksPanel>
     </>

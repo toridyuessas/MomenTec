@@ -98,7 +98,7 @@ function AudienceBand({ kicker, title, desc, variant = 'home' }) {
 }
 
 // ── Header ──────────────────────────────────────────────────────────────────
-function Header({ tel }) {
+function Header({ tel, lineUrl }) {
   const [scrolled, setScrolled] = React.useState(false);
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -109,7 +109,9 @@ function Header({ tel }) {
   return (
     <header className={`site-header ${scrolled ? 'scrolled' : ''}`}>
       <div className="container">
-        <a href="#top" className="brand">MomenTec<span className="dot" /></a>
+        <a href="#top" className="brand" aria-label="MomenTec トップへ">
+          <img src="picture/logo.jpg" alt="MomenTec" className="brand-logo" />
+        </a>
         <div className="header-cta">
           <a href={`tel:${tel.replace(/-/g, '')}`} className="tel-link" aria-label="電話する">
             <span className="icon-circle"><IconPhone size={16} stroke={2} /></span>
@@ -118,7 +120,7 @@ function Header({ tel }) {
           <a href={`tel:${tel.replace(/-/g, '')}`} className="tel-link-mobile" aria-label="電話する">
             <IconPhone size={18} stroke={2} />
           </a>
-          <a href="#cta" className="header-line">
+          <a href={lineUrl} target="_blank" rel="noopener noreferrer" className="header-line">
             <IconMessage size={14} stroke={2} />
             LINEで相談
           </a>
@@ -129,7 +131,7 @@ function Header({ tel }) {
 }
 
 // ── Mobile bottom bar ───────────────────────────────────────────────────────
-function MobileBar({ tel }) {
+function MobileBar({ tel, lineUrl }) {
   const [visible, setVisible] = React.useState(false);
   React.useEffect(() => {
     const onScroll = () => {
@@ -148,7 +150,8 @@ function MobileBar({ tel }) {
       <a href={`tel:${tel.replace(/-/g, '')}`} className="btn btn-primary">
         <IconPhone size={18} stroke={2} /> 電話で相談
       </a>
-      <a href="#cta" className="btn btn-secondary" style={{ background: 'var(--accent-soft)', borderColor: 'transparent' }}>
+      <a href={lineUrl} target="_blank" rel="noopener noreferrer"
+         className="btn btn-secondary" style={{ background: 'var(--accent-soft)', borderColor: 'transparent' }}>
         <IconMessage size={18} stroke={2} /> LINEで相談
       </a>
     </div>
@@ -156,7 +159,7 @@ function MobileBar({ tel }) {
 }
 
 // ── Hero ────────────────────────────────────────────────────────────────────
-function Hero({ headline, sublede, area, tel }) {
+function Hero({ headline, sublede, area, tel, lineUrl }) {
   return (
     <section id="top" className="hero">
       <div className="container">
@@ -178,7 +181,8 @@ function Hero({ headline, sublede, area, tel }) {
               <a href={`tel:${tel.replace(/-/g, '')}`} className="btn btn-primary btn-large">
                 <IconPhone size={20} stroke={2} /> 電話で相談する
               </a>
-              <a href="#cta" className="btn btn-secondary btn-large">
+              <a href={lineUrl} target="_blank" rel="noopener noreferrer"
+                 className="btn btn-secondary btn-large">
                 <IconMessage size={20} stroke={2} /> LINEで相談
               </a>
             </div>

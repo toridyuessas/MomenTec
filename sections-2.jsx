@@ -273,7 +273,7 @@ function Faq() {
 }
 
 // ── Final CTA ───────────────────────────────────────────────────────────────
-function FinalCTA({ tel }) {
+function FinalCTA({ tel, lineUrl }) {
   return (
     <section id="cta" className="section-cta">
       <div className="container">
@@ -291,7 +291,8 @@ function FinalCTA({ tel }) {
           </div>
         </Reveal2>
         <Reveal2 delay={200}>
-          <a href="#" className="btn btn-primary btn-large" style={{ background: 'var(--accent-deep)' }}>
+          <a href={lineUrl} target="_blank" rel="noopener noreferrer"
+             className="btn btn-primary btn-large" style={{ background: 'var(--accent-deep)' }}>
             <IconMessage2 size={20} stroke={2} /> LINEで相談する
           </a>
         </Reveal2>
@@ -301,17 +302,19 @@ function FinalCTA({ tel }) {
 }
 
 // ── Footer ──────────────────────────────────────────────────────────────────
-function Footer({ tel, area }) {
+function Footer({ tel, area, lineUrl }) {
   return (
     <footer className="site-footer">
       <div className="container">
-        <div className="brand">MomenTec<span className="dot" /></div>
+        <div className="brand">
+          <img src="picture/logo.jpg" alt="MomenTec" className="brand-logo brand-logo--footer" />
+        </div>
         <div className="footer-rule" />
         <div className="footer-info">
           <div><b>代表者</b>谷之口 勢也 (Taninokuchi Seiya)</div>
           <div><b>所在地</b>鹿児島県鹿児島市上谷口町493</div>
           <div><b>電話番号</b>{tel}</div>
-          <div><b>LINE</b>(準備中)</div>
+          <div><b>LINE</b><a href={lineUrl} target="_blank" rel="noopener noreferrer" className="footer-link">公式アカウントを友だち追加</a></div>
           <div><b>営業時間</b>8:00 〜 18:00 / 日曜定休<br /><span className="muted">（日曜・夜間も事前相談で対応可）</span></div>
           <div><b>お支払い</b>現金 / 請求書払い</div>
         </div>
